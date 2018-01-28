@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Beer Price Comparator
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list >
+    <ion-item-sliding *ngFor="let cerveja of cervejas">
+
+    <button ion-item>
+       Cerveja: {{ cerveja.beer_name }}<br>
+       Volume: {{ cerveja.volume }}ml<br>
+       Preco/ml: {{ cerveja.price_per_ml }}<br>
+       Latitude: {{ cerveja.seller_latitude }}<br>
+       Longitude: {{ cerveja.seller_longitude }}<br>
+     </button>
+
+     <ion-item-options side="left">
+       <button ion-button color="danger" (click)="deleteCerveja(cerveja)">
+         <ion-icon name="trash"></ion-icon>
+         Excluir
+       </button>
+     </ion-item-options>
+
+   </ion-item-sliding>
+  </ion-list>
+  <ion-fab right bottom>
+    <button ion-fab  (click)="addCervejas()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+  <ion-fab right top>
+    <button ion-fab color="secondary" (click)="goMaps()"><ion-icon ios="ios-map" md="md-map"></ion-icon></button>
+  </ion-fab>
+</ion-content>
